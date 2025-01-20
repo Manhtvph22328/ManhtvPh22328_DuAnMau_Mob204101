@@ -5,10 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.ThanhVienFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="730dp"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recy_Tv"
+            android:layout_width="match_parent"
+            android:layout_height="726dp" />
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="#358e9d"
+        android:layout_margin="20dp"
+        android:src="@drawable/add"/>
 
 </FrameLayout>
