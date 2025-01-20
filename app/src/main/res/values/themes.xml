@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ManhtvPh22328_DuAnMau_Mob204101" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.ManhtvPh22328_DuAnMau_Mob204101" parent="Base.Theme.ManhtvPh22328_DuAnMau_Mob204101" />
+</resources>
