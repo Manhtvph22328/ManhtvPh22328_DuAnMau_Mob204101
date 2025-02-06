@@ -24,6 +24,7 @@ import com.example.manhtvph22328_duanmau_mob204101.Fragment.LoaiSachFragment;
 import com.example.manhtvph22328_duanmau_mob204101.Fragment.PhieuMuonFragment;
 import com.example.manhtvph22328_duanmau_mob204101.Fragment.SachFragment;
 import com.example.manhtvph22328_duanmau_mob204101.Fragment.ThanhVienFragment;
+import com.example.manhtvph22328_duanmau_mob204101.Fragment.ThemNguoiDungFragment;
 import com.example.manhtvph22328_duanmau_mob204101.Fragment.Top10Fragment;
 import com.example.manhtvph22328_duanmau_mob204101.Model.ThuThu;
 import com.google.android.material.navigation.NavigationView;
@@ -96,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if (id == R.id.tk_doanhthu){
             toolbar.setTitle("Doanh thu");
             replaceFragment(new DoanhThuFragment());
+        }else if (id == R.id.nd_themNd){
+            toolbar.setTitle("Thêm người dùng");
+            replaceFragment(new ThemNguoiDungFragment());
         }else if (id == R.id.nd_doiMk){
             toolbar.setTitle("Đổi mật khẩu");
             replaceFragment(new DoiMkFragment());

@@ -1,60 +1,45 @@
 package com.example.manhtvph22328_duanmau_mob204101.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.manhtvph22328_duanmau_mob204101.Database.ThuThuDao;
+import com.example.manhtvph22328_duanmau_mob204101.Model.ThuThu;
 import com.example.manhtvph22328_duanmau_mob204101.R;
+import com.google.android.material.textfield.TextInputEditText;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DoiMkFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class DoiMkFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private TextInputEditText ed_Mkcu, ed_Mkmoi, ed_nhapLaimk;
+    private ThuThuDao thuThuDao;
+    private Button ok,del;
+    private TextView hhh;
+    private Context context;
+    private LinearLayout l ;
     public DoiMkFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DoiMkFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static DoiMkFragment newInstance(String param1, String param2) {
         DoiMkFragment fragment = new DoiMkFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -62,5 +47,50 @@ public class DoiMkFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_doi_mk, container, false);
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle saveInstanceState) {
+        super.onViewCreated(view, saveInstanceState);
+        ed_Mkcu = view.findViewById(R.id.eddoiMk_mkcu);
+        ed_Mkmoi = view.findViewById(R.id.eddoiMk_mkmoi);
+        ed_nhapLaimk = view.findViewById(R.id.eddoiMk_nhaclaimk);
+        del= view.findViewById(R.id.btn_doimk_delete);
+        ok = view.findViewById(R.id.btn_doimk_ok);
+        thuThuDao = new ThuThuDao(getActivity());
+
+
+        Bundle args = getArguments();
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (args != null) {
+                    String maTT = args.getString("Tk");
+                    ThuThu thuThu = thuThuDao.getId(maTT);
+                    if (ed_Mkcu.getText().toString().equals(thuThu.getMatKhau()) && ed_Mkmoi.getText().toString().equals(ed_nhapLaimk.getText().toString())) {
+                        thuThu.setMatKhau(ed_Mkmoi.getText().toString());
+                        int kq = thuThuDao.update(thuThu);
+                        if (kq == -1) {
+                            Toast.makeText(getActivity(), "Đổi thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                        if (kq == 1) {
+                            Toast.makeText(getActivity(), "Đổi thành công", Toast.LENGTH_SHORT).show();
+                        }
+                    } else if (ed_Mkcu.length() == 0 || ed_Mkmoi.length() == 0 || ed_nhapLaimk.length() == 0) {
+                        Toast.makeText(getActivity(), "Không để trống", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), "Sai thông tin", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        view.findViewById(R.id.btn_doimk_delete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onVisibleBehindCanceled();
+            }
+        });
+
+
     }
 }
