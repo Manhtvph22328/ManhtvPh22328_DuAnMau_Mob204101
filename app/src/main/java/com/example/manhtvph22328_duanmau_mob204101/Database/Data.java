@@ -37,7 +37,6 @@ public class Data extends SQLiteOpenHelper {
     public Data(@Nullable Context context) {
         super(context, "QLTV.db", null, 1);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_PhieuMuon);
@@ -47,7 +46,6 @@ public class Data extends SQLiteOpenHelper {
         db.execSQL(SQL_ThanhVien);
         db.execSQL(Insert_ThuThu);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS PHIEUMUON");
