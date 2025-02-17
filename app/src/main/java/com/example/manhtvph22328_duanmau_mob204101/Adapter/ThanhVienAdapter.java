@@ -48,9 +48,9 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.user
         if (thanhVien == null){
             return;
         }
-        holder.tvmaTv.setText("Mã thành viên: "+thanhVien.getMaTV());
-        holder.tvtenTv.setText("Tên thành viên: "+thanhVien.getTenTV());
-        holder.tvngaySinh.setText("Năm sinh thành viên: "+thanhVien.getNamSinh());
+        holder.tvmaTv.setText("Mã: "+thanhVien.getMaTV());
+        holder.tvtenTv.setText("Họ Tên: "+thanhVien.getTenTV());
+        holder.tvngaySinh.setText("Năm sinh: "+thanhVien.getNamSinh());
 
         holder.imgdelete.setOnClickListener(new View.OnClickListener() {
             @Override

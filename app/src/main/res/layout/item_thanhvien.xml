@@ -12,6 +12,7 @@
         <ImageView
             android:id="@+id/item_tv_img"
             android:src="@drawable/profile"
+            android:layout_marginRight="20dp"
             android:layout_width="100dp"
             android:layout_height="120dp">
         </ImageView>
@@ -26,21 +27,21 @@
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:layout_marginTop="10dp"
-                android:hint="  Mã:"
+                android:hint="Mã:"
                 android:textSize="20dp"/>
             <TextView
                 android:id="@+id/tv_thanhvien_ten"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="  Tên:"
+                android:hint="Họ Tên:"
                 android:textColor="#000000"
                 android:textSize="20dp"/>
             <TextView
                 android:id="@+id/tv_thanhvien_ngaySinh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="  Ngày Sinh:"
+                android:hint="Ngày Sinh:"
                 android:layout_marginTop="8dp"
                 android:textSize="20dp"/>
         </LinearLayout>

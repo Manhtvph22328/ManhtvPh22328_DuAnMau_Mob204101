@@ -11,7 +11,7 @@ public class PhieuMuon {
     private Date ngayMuon;
     private int traSach;
 
-    public PhieuMuon() {
+    public PhieuMuon(int anInt, int cursorInt, int maTV, int maSach,  String string, Date parse, int traSach) {
     }
 
     public PhieuMuon(int maPhieu, int maTT, int maTV, int maSach, int tienThue, Date ngayMuon, int traSach) {
@@ -22,6 +22,10 @@ public class PhieuMuon {
         this.tienThue = tienThue;
         this.ngayMuon = ngayMuon;
         this.traSach = traSach;
+    }
+
+    public PhieuMuon() {
+
     }
 
     public int getMaPhieu() {

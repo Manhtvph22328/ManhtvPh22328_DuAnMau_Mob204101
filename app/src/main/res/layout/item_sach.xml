@@ -12,6 +12,7 @@
         <ImageView
             android:id="@+id/item_tv_img"
             android:src="@drawable/book"
+            android:layout_marginRight="20dp"
             android:layout_width="100dp"
             android:layout_height="120dp">
         </ImageView>

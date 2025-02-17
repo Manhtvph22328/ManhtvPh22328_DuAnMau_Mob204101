@@ -77,7 +77,8 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.PmVi
         ThanhVien thanhVien = thanhVienDao.getID(phieuMuon.getMaTV());
         holder.tvtenTV.setText(thanhVien.getTenTV());
         Sach sach = sachDao.getID(phieuMuon.getMaSach());
-        holder.tvtenSach.setText(String.valueOf(phieuMuon.getTienThue()));
+        holder.tvtenSach.setText(String.valueOf(sach.getTenSach()));
+        holder.tvTien.setText(String.valueOf(phieuMuon.getTienThue()));
         holder.tvngay.setText(new SimpleDateFormat("dd/MM/yyyy").format(phieuMuon.getNgayMuon()));
         holder.img_delete.setOnClickListener(new View.OnClickListener() {
             @Override

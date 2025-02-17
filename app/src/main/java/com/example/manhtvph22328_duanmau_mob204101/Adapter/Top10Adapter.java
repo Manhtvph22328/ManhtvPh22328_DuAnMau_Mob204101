@@ -41,8 +41,8 @@ public class Top10Adapter extends RecyclerView.Adapter<Top10Adapter.userViewHold
         }
         holder.tvmaSach.setText("Mã sách: "+sach.getMaSach());
         holder.tvtenSach.setText("Tên sách: "+sach.getTenSach());
-        holder.tvgiaSach.setText("Giá thuê sách: "+String.valueOf(sach.getGiaThue()));
-        holder.tvSl.setText("Số luong sách: "+sach.getLoaiSach());
+        holder.tvgiaSach.setText("Giá thuê: "+String.valueOf(sach.getGiaThue()));
+        holder.tvSl.setText("Số lượng: "+sach.getLoaiSach());
     }
 
     @Override
