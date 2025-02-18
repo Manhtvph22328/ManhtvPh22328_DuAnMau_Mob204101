@@ -26,7 +26,7 @@ public class ThanhVienDao {
         if (cursor.getCount()!=0){
             cursor.moveToFirst();
             do {
-                list.add(new ThanhVien(cursor.getInt(0),cursor.getString(1),cursor.getString(2)));
+                list.add(new ThanhVien(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3)));
             }while (cursor.moveToNext());
         }
         return list;
@@ -36,7 +36,7 @@ public class ThanhVienDao {
         ContentValues values = new ContentValues();
         values.put("hoTen", thanhVien.getTenTV());
         values.put("namSinh", thanhVien.getNamSinh());
-
+        values.put("cccd", thanhVien.getCccd());
         long kq = sqLiteDatabase.insert("THANHVIEN", null,values);
         if (kq <=0){
             return -1;
@@ -54,6 +54,7 @@ public class ThanhVienDao {
         ContentValues values = new ContentValues();
         values.put("hoTen", thanhVien.getTenTV());
         values.put("namSinh", thanhVien.getNamSinh());
+        values.put("cccd", thanhVien.getCccd());
         int kq = sqLiteDatabase.update("THANHVIEN",values,"maTV=?", new String[]{String.valueOf(thanhVien.getMaTV())});
         if (kq<=0){
             return -1;
@@ -66,7 +67,7 @@ public class ThanhVienDao {
         ArrayList<ThanhVien> list = new ArrayList<>();
         if (cursor.getCount()!=0){
             cursor.moveToFirst();
-            list.add(new ThanhVien(cursor.getInt(0),cursor.getString(1),cursor.getString(2)));
+            list.add(new ThanhVien(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3)));
         }
         if (!list.isEmpty()){
             return list.get(0);

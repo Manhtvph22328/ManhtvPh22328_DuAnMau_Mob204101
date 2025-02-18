@@ -79,6 +79,7 @@ public class ThanhVienFragment extends Fragment {
         View v = inflater.inflate(R.layout.dialog_thanhvien, null);
         TextInputEditText ed_tenTv = v.findViewById(R.id.ed_diaTv_tenTv);
         TextInputEditText ed_ngaySinh = v.findViewById(R.id.ed_diaTv_ngaySinh);
+        TextInputEditText ed_cccd = v.findViewById(R.id.ed_diaTv_cccdTv);
 
         Button btn_luu,btn_huy;
         btn_luu = v.findViewById(R.id.btn_diaTv_ok);
@@ -107,7 +108,7 @@ public class ThanhVienFragment extends Fragment {
         btn_luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ed_ngaySinh.length() == 0 || ed_tenTv.length() == 0){
+                if (ed_ngaySinh.length() == 0 || ed_tenTv.length() == 0 || ed_cccd.length() == 0 ){
                     Toast.makeText(getActivity(), "Không để trống", Toast.LENGTH_SHORT).show();
                 }else {
                     thanhVienDao = new ThanhVienDao(getActivity());
@@ -115,15 +116,21 @@ public class ThanhVienFragment extends Fragment {
                     thanhVien.setTenTV(ed_tenTv.getText().toString());
                     thanhVien.setNamSinh(ed_ngaySinh.getText().toString());
 
-                    int kq = thanhVienDao.Insert(thanhVien);
-                    if (kq == -1){
-                        Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                    try {
+                        thanhVien.setCccd(Long.parseLong(ed_cccd.getText().toString()));
+
+                        int kq = thanhVienDao.Insert(thanhVien);
+                        if (kq == -1){
+                            Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                        if (kq == 1){
+                            Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+                        }
+                        onResume();
+                        alertDialog.cancel();
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(getActivity(), "Số CCCD không hợp lệ", Toast.LENGTH_SHORT).show();
                     }
-                    if (kq == 1){
-                        Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
-                    }
-                    onResume();
-                    alertDialog.cancel();
                 }
             }
         });

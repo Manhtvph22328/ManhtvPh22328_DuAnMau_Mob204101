@@ -31,7 +31,8 @@ public class Data extends SQLiteOpenHelper {
     public static final String SQL_ThanhVien = "create table THANHVIEN("+
             "maTV INTEGER primary key AUTOINCREMENT,"+
             "hoTen TEXT not null,"+
-            "namSinh TEXT not null);";
+            "namSinh TEXT not null,"+
+            "cccd INTEGER not null);";
     public static final String Insert_ThuThu = "INSERT INTO THUTHU(maTT,hoTen,matKhau)VALUES"+
             "('admin','admin','123')";
     public Data(@Nullable Context context) {

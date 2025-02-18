@@ -38,7 +38,16 @@
             android:drawableEnd="@drawable/calendar"
             android:background="#FAF6F6"/>
     </com.google.android.material.textfield.TextInputLayout>
-
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_diaTv_cccdTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cccd"
+            android:background="#FAF6F6"/>
+    </com.google.android.material.textfield.TextInputLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

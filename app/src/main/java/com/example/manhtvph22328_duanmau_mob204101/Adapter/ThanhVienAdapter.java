@@ -51,6 +51,7 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.user
         holder.tvmaTv.setText("Mã: "+thanhVien.getMaTV());
         holder.tvtenTv.setText("Họ Tên: "+thanhVien.getTenTV());
         holder.tvngaySinh.setText("Năm sinh: "+thanhVien.getNamSinh());
+        holder.tvcccd.setText("Cccd: "+thanhVien.getCccd());
 
         holder.imgdelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +76,7 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.user
     }
 
     public class userViewHolder extends RecyclerView.ViewHolder{
-        private TextView tvmaTv, tvtenTv, tvngaySinh;
+        private TextView tvmaTv, tvtenTv, tvngaySinh, tvcccd;
         private ImageView imgdelete;
         public userViewHolder(@NonNull View itemView){
             super(itemView);
@@ -83,6 +84,7 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.user
             tvmaTv = itemView.findViewById(R.id.tv_thanhvien_ma);
             tvtenTv = itemView.findViewById(R.id.tv_thanhvien_ten);
             tvngaySinh = itemView.findViewById(R.id.tv_thanhvien_ngaySinh);
+            tvcccd = itemView.findViewById(R.id.tv_thanhvien_cccd);
             imgdelete = itemView.findViewById(R.id.img_tv_delete);
         }
     }
@@ -113,6 +115,7 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.user
         TextInputEditText edmaTv = v.findViewById(R.id.ed_diaTv_maTv);
         TextInputEditText edtenTv = v.findViewById(R.id.ed_diaTv_tenTv);
         TextInputEditText edngaySinh = v.findViewById(R.id.ed_diaTv_ngaySinh);
+        TextInputEditText edcccd = v.findViewById(R.id.ed_diaTv_cccdTv);
 
         Button btnluu, btnhuy;
         btnluu = v.findViewById(R.id.btn_diaTv_ok);
@@ -121,6 +124,7 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.user
         edmaTv.setText(String.valueOf(thanhVien.getMaTV()));
         edtenTv.setText(thanhVien.getTenTV());
         edngaySinh.setText(thanhVien.getNamSinh());
+        edcccd.setText(String.valueOf(thanhVien.getCccd()));
 
         builder.setView(v);
         AlertDialog alertDialog = builder.create();
@@ -130,6 +134,7 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.user
                 thanhVienDao = new ThanhVienDao(context);
                 thanhVien.setTenTV(edtenTv.getText().toString());
                 thanhVien.setNamSinh(edngaySinh.getText().toString());
+                thanhVien.setCccd(Long.parseLong(edcccd.getText().toString()));
 
                 int kq = thanhVienDao.update(thanhVien);
                 if (kq==-1){

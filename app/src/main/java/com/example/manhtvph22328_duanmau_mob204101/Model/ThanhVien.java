@@ -4,14 +4,24 @@ public class ThanhVien {
     private int maTV;
     private String tenTV;
     private String namSinh;
+    private long cccd;
 
     public ThanhVien() {
     }
 
-    public ThanhVien(int maTV, String tenTV, String namSinh) {
+    public ThanhVien(int maTV, String tenTV, String namSinh, int cccd) {
         this.maTV = maTV;
         this.tenTV = tenTV;
         this.namSinh = namSinh;
+        this.cccd = cccd;
+    }
+
+    public long getCccd() {
+        return cccd;
+    }
+
+    public void setCccd(long cccd) {
+        this.cccd = cccd;
     }
 
     public int getMaTV() {
