@@ -109,10 +109,12 @@ public class LoaiSachAdapter extends RecyclerView.Adapter<LoaiSachAdapter.userVi
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View v = inflater.inflate(R.layout.dialog_loaisach,null);
-        TextInputEditText ed_tenLoai = v.findViewById(R.id.ed_diaLs_tenLs);
         TextInputEditText ed_maLoai = v.findViewById(R.id.ed_diaLs_maLs);
-        ed_tenLoai.setText(String.valueOf(loaiSach.getMaLoai()));
-        ed_maLoai.setText(String.valueOf(loaiSach.getTenLoai()));
+        TextInputEditText ed_tenLoai = v.findViewById(R.id.ed_diaLs_tenLs);
+
+        ed_maLoai.setText(String.valueOf(loaiSach.getMaLoai()));
+        ed_tenLoai.setText(String.valueOf(loaiSach.getTenLoai()));
+
         builder.setView(v);
         AlertDialog alertDialog = builder.create();
         v.findViewById(R.id.btn_diaLs_ok).setOnClickListener(new View.OnClickListener() {

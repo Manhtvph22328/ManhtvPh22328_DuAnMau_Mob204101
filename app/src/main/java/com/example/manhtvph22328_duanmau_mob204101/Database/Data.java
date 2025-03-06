@@ -33,10 +33,8 @@ public class Data extends SQLiteOpenHelper {
             "hoTen TEXT not null,"+
             "namSinh TEXT not null,"+
             "cccd INTEGER not null);";
-    public static final String Insert_ThuThu = "INSERT INTO THUTHU(maTT,hoTen,matKhau)VALUES"+
-            "('admin','admin','123')";
     public Data(@Nullable Context context) {
-        super(context, "QLTV.db", null, 1);
+        super(context, "QLTV.db", null, 2);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -45,7 +43,13 @@ public class Data extends SQLiteOpenHelper {
         db.execSQL(SQL_ThuThu);
         db.execSQL(SQL_Sach);
         db.execSQL(SQL_ThanhVien);
-        db.execSQL(Insert_ThuThu);
+
+        db.execSQL("INSERT INTO THUTHU(maTT, hoTen, matKhau) VALUES ('admin', 'Admin User', '123');");
+        db.execSQL("INSERT INTO LOAISACH(tenLoai) VALUES ('Khoa học'), ('Tiểu thuyết');");
+        db.execSQL("INSERT INTO THANHVIEN(hoTen, namSinh, cccd) VALUES ('Nguyen Van A', '1995', 123456789);");
+        db.execSQL("INSERT INTO SACH(tenSach, giaThue, maLoai) VALUES ('Sách A', 10000, 1), ('Sách B', 15000, 2);");
+        db.execSQL("INSERT INTO PHIEUMUON(maPM, maTT, maTV, maSach, tienThue, ngay, traSach) " +
+                "VALUES (1, 'admin', 1, 1, 10000, '2024-02-24', 0);");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

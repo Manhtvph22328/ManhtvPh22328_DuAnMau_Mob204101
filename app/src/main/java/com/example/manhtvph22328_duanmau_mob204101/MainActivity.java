@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ThuThu thuThu = thuThuDao.getId(maTT);
 
         MenuItem item = navigationView.getMenu().findItem(R.id.nd_themNd);
-        if (thuThu.getHoTen().equals("admin")){
+        if (thuThu.getHoTen().equals("Admin User")){
             item.setEnabled(true);
         }else {
             item.setEnabled(false);

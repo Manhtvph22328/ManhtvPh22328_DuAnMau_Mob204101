@@ -79,7 +79,6 @@ public class PhieuMuonFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog_Pm();
-
             }
         });
 
